@@ -35,10 +35,9 @@ fun DetailScreen(
     }
 
     Surface (
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(vertical = 24.dp, horizontal = 8.dp)
+        modifier = Modifier.fillMaxSize()
             .background(BackGround)
+            .padding(vertical = 24.dp, horizontal = 8.dp)
     ) {
         LazyColumn {
             item {
@@ -46,8 +45,8 @@ fun DetailScreen(
                     painter = rememberImagePainter(currentItem?.image?.medium),
                     contentDescription = null,
                     modifier = Modifier
-                        .size(120.dp)
-                        .clip(RoundedCornerShape(4.dp)),
+                        .size(512.dp)
+                        .clip(RoundedCornerShape(8.dp)),
                 )
                 Text (
                     text = currentItem?.name ?: "Hello",

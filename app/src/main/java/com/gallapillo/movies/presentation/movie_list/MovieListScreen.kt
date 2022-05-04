@@ -33,7 +33,8 @@ fun MovieListScreen(
 ) {
     val state = viewModel.state.value
     Surface(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
             .background(BackGround),
         color = BackGround
     ) {
@@ -52,7 +53,7 @@ fun MovieListScreen(
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 20.dp),
+                    .padding(horizontal = 20.dp, vertical = 40.dp),
             )
         }
         if (state.isLoading) {
@@ -85,7 +86,9 @@ fun MovieItem(
             Image(
                 painter = rememberImagePainter(item.image.medium),
                 contentDescription = null,
-                modifier = Modifier.size(120.dp).clip(RoundedCornerShape(4.dp)),
+                modifier = Modifier
+                    .size(120.dp)
+                    .clip(RoundedCornerShape(4.dp)),
             )
             Column {
                 Text(
