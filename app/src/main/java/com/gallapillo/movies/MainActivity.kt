@@ -3,11 +3,13 @@ package com.gallapillo.movies
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.gallapillo.movies.common.Constants
+import com.gallapillo.movies.common.Screens
+import com.gallapillo.movies.presentation.movie_list.MovieListScreen
+import com.gallapillo.movies.presentation.splash.SplashScreen
 import com.gallapillo.movies.ui.theme.MoviesTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,24 +17,22 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MoviesTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = Constants.SPLASH_SCREEN_ROUTE
+                ) {
+                    composable(route = Screens.Splash.route) {
+                        SplashScreen(navController)
+                    }
+                    composable(route = Screens.MovieList.route) {
+                        MovieListScreen()
+                    }
+                    composable(route = Screens.Detail.route) {
+
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MoviesTheme {
-        Greeting("Android")
     }
 }
