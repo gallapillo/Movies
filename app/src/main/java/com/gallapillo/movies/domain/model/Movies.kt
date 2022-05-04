@@ -1,4 +1,4 @@
-package com.gallapillo.movies.data.remote.models
+package com.gallapillo.movies.domain.model
 
 data class Movies(
     val _links: Links,

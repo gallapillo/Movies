@@ -1,8 +1,7 @@
 package com.gallapillo.movies.data.repository
 
-import com.gallapillo.movies.data.remote.models.Movies
-import retrofit2.Response
+import com.gallapillo.movies.domain.model.Movies
 
 interface MovieRepository {
-    suspend fun getAllMovies() : Response<List<Movies>>
+    suspend fun getAllMovies() : List<Movies>
 }

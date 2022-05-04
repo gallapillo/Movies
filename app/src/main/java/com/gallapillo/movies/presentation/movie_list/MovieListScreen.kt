@@ -8,24 +8,23 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.gallapillo.movies.data.remote.models.Movies
+import com.gallapillo.movies.domain.model.Movies
 
 @Composable
 fun MovieListScreen(
     navController: NavController,
     viewModel: MovieListViewModel = hiltViewModel()
 ) {
-    val allMovies = viewModel.allMovies.observeAsState(listOf()).value
+    val state = viewModel.allMovies.value
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
         LazyColumn {
-            items(allMovies.take(10)) { item ->
-                MovieItem(item = item)
+            items(state.movies) { movie ->
+                MovieItem(item = movie)
             }
         }
     }
