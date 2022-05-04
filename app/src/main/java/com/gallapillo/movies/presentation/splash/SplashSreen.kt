@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.gallapillo.movies.common.Screens
+import com.gallapillo.movies.ui.theme.Primary
 import kotlinx.coroutines.delay
 
 @Composable
@@ -57,7 +58,7 @@ fun Splash(
                 .alpha(alpha = alpha),
             imageVector = Icons.Default.PlayArrow,
             contentDescription = "",
-            tint = Color.Black
+            tint = Primary
         )
     }
 }
