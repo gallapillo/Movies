@@ -11,7 +11,9 @@ import com.gallapillo.movies.common.Screens
 import com.gallapillo.movies.presentation.movie_list.MovieListScreen
 import com.gallapillo.movies.presentation.splash.SplashScreen
 import com.gallapillo.movies.ui.theme.MoviesTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
