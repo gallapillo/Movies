@@ -1,6 +1,7 @@
 package com.gallapillo.movies.presentation.movie_detail
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -19,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberImagePainter
 import com.gallapillo.movies.common.HtmlText
 import com.gallapillo.movies.presentation.movie_list.MovieListViewModel
+import com.gallapillo.movies.presentation.theme.BackGround
 import com.gallapillo.movies.presentation.theme.GoogleSansBold
 import com.gallapillo.movies.presentation.theme.GoogleSansMedium
 import com.gallapillo.movies.presentation.theme.GoogleSansRegular
@@ -36,6 +38,7 @@ fun DetailScreen(
         modifier = Modifier
             .fillMaxSize()
             .padding(vertical = 24.dp, horizontal = 8.dp)
+            .background(BackGround)
     ) {
         LazyColumn {
             item {
