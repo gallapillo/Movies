@@ -1,4 +1,4 @@
-package com.gallapillo.movies.data.remote.repository
+package com.gallapillo.movies.data.repository
 
 import com.gallapillo.movies.data.remote.models.Movies
 import retrofit2.Response

@@ -17,14 +17,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.gallapillo.movies.common.Screens
+import com.gallapillo.movies.presentation.movie_list.MovieListViewModel
 import com.gallapillo.movies.ui.theme.Primary
 import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: MovieListViewModel = hiltViewModel()
 ) {
     var startAnimate by remember {
         mutableStateOf(false)
@@ -37,6 +40,7 @@ fun SplashScreen(
     )
     LaunchedEffect(key1 = true) {
         startAnimate = true
+        viewModel.getAllMovies()
         delay(4000)
         navController.navigate(Screens.MovieList.route)
     }

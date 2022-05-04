@@ -2,7 +2,7 @@ package com.gallapillo.movies.domain.repository
 
 import com.gallapillo.movies.data.remote.MovieApi
 import com.gallapillo.movies.data.remote.models.Movies
-import com.gallapillo.movies.data.remote.repository.MovieRepository
+import com.gallapillo.movies.data.repository.MovieRepository
 import retrofit2.Response
 import javax.inject.Inject
 
