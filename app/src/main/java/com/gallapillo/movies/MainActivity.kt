@@ -9,10 +9,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.gallapillo.movies.common.Constants
 import com.gallapillo.movies.common.Screens
+import com.gallapillo.movies.presentation.movie_detail.DetailScreen
 import com.gallapillo.movies.presentation.movie_list.MovieListScreen
 import com.gallapillo.movies.presentation.movie_list.MovieListViewModel
 import com.gallapillo.movies.presentation.splash.SplashScreen
-import com.gallapillo.movies.ui.theme.MoviesTheme
+import com.gallapillo.movies.presentation.theme.MoviesTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,8 +40,8 @@ class MainActivity : ComponentActivity() {
                             viewModel = viewModel
                         )
                     }
-                    composable(route = Screens.Detail.route) {
-
+                    composable(route = Screens.Detail.route + "/{Id}") { backStackEntry ->
+                        DetailScreen(viewModel = viewModel, id = backStackEntry.arguments?.getString("Id") ?: "1")
                     }
                 }
             }

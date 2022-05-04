@@ -16,8 +16,8 @@ class MovieListViewModel @Inject constructor(
     private val getMoviesUseCase: GetMoviesUseCase
 ) : ViewModel() {
 
-    private val _allMovies = mutableStateOf<MovieListState>(MovieListState())
-    val allMovies: State<MovieListState> = _allMovies
+    private val _state = mutableStateOf<MovieListState>(MovieListState())
+    val state: State<MovieListState> = _state
 
     init {
         getMovies()
@@ -27,13 +27,13 @@ class MovieListViewModel @Inject constructor(
         getMoviesUseCase().onEach { res ->
             when(res) {
                 is Resource.Success -> {
-                    _allMovies.value = MovieListState(movies = res.data ?: emptyList())
+                    _state.value = MovieListState(movies = res.data ?: emptyList())
                 }
                 is Resource.Error -> {
-                    _allMovies.value = MovieListState(error = res.message ?: "Unknown error")
+                    _state.value = MovieListState(error = res.message ?: "Unknown error")
                 }
                 is Resource.Loading -> {
-                    _allMovies.value = MovieListState(isLoading = true)
+                    _state.value = MovieListState(isLoading = true)
                 }
             }
         }.launchIn(viewModelScope)

@@ -1,10 +1,16 @@
-package com.gallapillo.movies.ui.theme
+package com.gallapillo.movies.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.gallapillo.movies.R
+
+val GoogleSansBold = FontFamily(Font((R.font.googlesansbold)))
+val GoogleSansMedium = FontFamily(Font((R.font.googlesansmedium)))
+val GoogleSansRegular = FontFamily(Font((R.font.googlesansregular)))
 
 // Set of Material typography styles to start with
 val Typography = Typography(
